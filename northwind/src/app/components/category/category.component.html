@@ -1,0 +1,28 @@
+<div class="col-12" *ngIf="dataLoaded==false">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only"></span>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<div class="col-12" *ngIf="dataLoaded==true">
+  <ul class="list-group">
+    <li
+
+     routerLink="/products"
+
+     [class]="getAllCategoryClass()">
+      Tüm Ürünler
+    </li>
+    <li
+     (click)="setCurrentCategory(category)"
+     routerLink="/products/category/{{category.categoryId}}"
+     *ngFor="let category of categories"
+     [class]="getCurrentCategoryClass(category)">
+      {{category.categoryName}}
+    </li>
+  </ul>
+</div>
